@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Lista de Tarefas</title>
+  <link rel="stylesheet" type="text/css" href="/styles.css">
+</head>
+
+<body>
+  <div class="container">
+    <h1>Lista de Tarefas</h1>
+    <form action="/add" method="post" class="form-add">
+      <input type="text" name="task" placeholder="Nova tarefa" required>
+      <button type="submit">Adicionar</button>
+    </form>
+    <ul>
+      <% tasks.forEach((task, index) => { %>
+        <li id="task_<%= index %>">
+          <div class="task-item">
+            <div class="checkbox-wrapper-31">
+              <input type="checkbox" name="taskCompleted" id="task<%= index %>">
+              <svg viewBox="0 0 35.6 35.6">
+                <circle class="background" cx="17.8" cy="17.8" r="17.8"></circle>
+                <circle class="stroke" cx="17.8" cy="17.8" r="14.37"></circle>
+                <polyline class="check" points="11.78 18.12 15.55 22.23 25.17 12.87"></polyline>
+              </svg>
+            </div>
+            <label for="task<%= index %>">
+              <%= task %>
+            </label>
+            <button type="button" class="remove-button" data-task-id="<%= index %>">X</button>
+          </div>
+        </li>
+      <% }) %>
+    </ul>
+  </div>
+  <script>
+    const removeButtons = document.querySelectorAll('.remove-button');
+
+    removeButtons.forEach((button) => {
+      button.addEventListener('click', () => {
+        const taskId = button.getAttribute('data-task-id');
+
+        fetch(`/remove/${taskId}`, {
+          method: 'DELETE',
+        })
+        .then((response) => {
+          if (response.ok) {
+            document.getElementById(`task_${taskId}`).remove();
+          } else {
+            console.log('Erro ao remover a tarefa.');
+          }
+        })
+        .catch((error) => {
+          console.log('Erro ao fazer a requisição:', error);
+        });
+      });
+    });
+  </script>
+</body>
+
+</html>
