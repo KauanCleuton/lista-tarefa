@@ -1,16 +1,14 @@
-const express = require('express');
-import { Request, Response } from 'express';
-const bodyParser = require('body-parser');
-const path = require('path');
+import express = require('express');
 
+import path = require('path');
+import { Request, Response } from "express";
 const app = express();
 
+
 app.set('view engine', 'ejs');
-app.use(express.static('public'));
-
-app.set('view', path.join(__dirname, 'view'));
-
-app.use(bodyParser.urlencoded({ extended: true }));
+app.set('views', path.join(__dirname, 'views'));
+app.use(express.static(path.join(__dirname, 'public')))
+app.use(express.urlencoded({ extended: true }));
 
 interface Task {
   name: string;
@@ -18,6 +16,8 @@ interface Task {
 }
 
 let tasks: Task[] = [];
+
+
 
 app.get('/', (request: Request, response: Response) => {
   response.render('index', { tasks });
@@ -31,9 +31,10 @@ app.post('/add', (request: Request, response: Response) => {
 
 app.post('/remove/:taskId', (request: Request, response: Response) => {
   const { taskId } = request.params;
-  tasks.splice(Number(taskId), 1);
-  response.sendStatus(200);
+  tasks = tasks.filter((task, index) => index !== Number(taskId));
+  response.sendStatus(204);
 });
+
 
 app.post('/toggle', (request: Request, response: Response) => {
   const { index } = request.body;

@@ -15,7 +15,8 @@
     </form>
     <ul>
       <% tasks.forEach((task, index) => { %>
-        <li id="task_<%= index %>">
+      <li data-task-id="<%= index %>">
+        <form action="/remove/<%= index %>" method="post" class="form-remove">
           <div class="task-item">
             <div class="checkbox-wrapper-31">
               <input type="checkbox" name="taskCompleted" id="task<%= index %>">
@@ -26,27 +27,29 @@
               </svg>
             </div>
             <label for="task<%= index %>">
-              <%= task %>
+              <%= task.name %>
             </label>
-            <button type="button" class="remove-button" data-task-id="<%= index %>">X</button>
+            <button type="submit" class="remove-button">X</button>
           </div>
-        </li>
+        </form>
+      </li>
       <% }) %>
     </ul>
   </div>
   <script>
     const removeButtons = document.querySelectorAll('.remove-button');
-
+  
     removeButtons.forEach((button) => {
       button.addEventListener('click', () => {
-        const taskId = button.getAttribute('data-task-id');
-
+        const form = button.closest('form');
+        const taskId = form.getAttribute('action').split('/').pop();
+  
         fetch(`/remove/${taskId}`, {
-          method: 'DELETE',
+          method: 'POST',
         })
         .then((response) => {
           if (response.ok) {
-            document.getElementById(`task_${taskId}`).remove();
+            form.closest('li').remove();  
           } else {
             console.log('Erro ao remover a tarefa.');
           }
