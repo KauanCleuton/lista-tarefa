@@ -39,26 +39,60 @@
   <script>
     const removeButtons = document.querySelectorAll('.remove-button');
   
-    removeButtons.forEach((button) => {
-      button.addEventListener('click', () => {
-        const form = button.closest('form');
-        const taskId = form.getAttribute('action').split('/').pop();
-  
-        fetch(`/remove/${taskId}`, {
-          method: 'POST',
-        })
-        .then((response) => {
-          if (response.ok) {
-            form.closest('li').remove();  
-          } else {
-            console.log('Erro ao remover a tarefa.');
-          }
-        })
-        .catch((error) => {
-          console.log('Erro ao fazer a requisição:', error);
-        });
+  removeButtons.forEach((button) => {
+    button.addEventListener('click', () => {
+      const form = button.closest('form');
+      const taskId = form.getAttribute('action').split('/').pop();
+
+      fetch(`/remove/${taskId}`, {
+        method: 'POST',
+      })
+      .then((response) => {
+        if (response.ok) {
+          form.closest('li').remove();  
+        } else {
+          console.log('Erro ao remover a tarefa.');
+        }
+      })
+      .catch((error) => {
+        console.log('Erro ao fazer a requisição:', error);
       });
     });
+  });
+
+  // Função para marcar a tarefa como concluída
+  function markTaskCompleted(checkbox) {
+    const liItem = checkbox.closest('li');
+    liItem.classList.toggle('completed-item', checkbox.checked);
+
+    const form = checkbox.closest('form');
+    const taskId = form.getAttribute('action').split('/').pop();
+
+    // Fazer uma requisição para atualizar o estado da tarefa no servidor (se necessário)
+    fetch(`/toggle`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ index: taskId }),
+    })
+    .then((response) => {
+      if (!response.ok) {
+        console.log('Erro ao atualizar o estado da tarefa no servidor.');
+      }
+    })
+    .catch((error) => {
+      console.log('Erro ao fazer a requisição:', error);
+    });
+  }
+
+  // Adicionar ouvinte de evento a todas as checkboxes
+  const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+  checkboxes.forEach((checkbox) => {
+    checkbox.addEventListener('change', () => {
+      markTaskCompleted(checkbox);
+    });
+  });
   </script>
 </body>
 
