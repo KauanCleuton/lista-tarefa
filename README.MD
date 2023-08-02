@@ -23,9 +23,13 @@ npm start
 ```
 
 O servidor será iniciado e estará disponível em:
-```<a href="http://localhost:3000">http://localhost:3000</a>```.
+```
+<a href="http://localhost:3000">http://localhost:3000</a>
+```.
 Link do projeto no ar no cycli:
-```<a href="lista-tarefa.cyclic.cloud">lista-tarefa.cyclic.cloud</a>```.
+```
+<a href="lista-tarefa.cyclic.cloud">lista-tarefa.cyclic.cloud</a>
+```.
 
 
 **Experimente o Projeto:**
