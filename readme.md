@@ -1,28 +1,35 @@
-**Descrição do Projeto: To-Do List com Node.js e TypeScript**
+To-Do List com Node.js e TypeScript
 
-Este é um projeto de lista de tarefas (To-Do List) desenvolvido usando Node.js, TypeScript e o framework Express. A aplicação permite que os usuários adicionem, removam e marquem tarefas como concluídas. O projeto foi criado com o objetivo de fornecer uma interface simples e intuitiva para organizar e gerenciar atividades diárias.
+Este é um projeto de lista de tarefas (To-Do List) implementado usando Node.js, TypeScript e o framework Express. A aplicação permite que os usuários adicionem, removam e marquem como concluídas as tarefas da lista. O projeto usa um mecanismo de visualização EJS para renderizar a página e estilização com CSS para uma interface limpa e intuitiva.
 
-**Pré-requisitos Globais:**
-Antes de executar o projeto, certifique-se de ter as seguintes dependências globais instaladas em seu sistema:
+Funcionalidades:
 
-- `<span>node</span>`: Para executar o código JavaScript/TypeScript.
-- `<span>typescript</span>` e `<span>ts-node</span>`: Para compilar e executar o código TypeScript.
+Adicionar novas tarefas à lista.
+Remover tarefas da lista.
+Marcar tarefas como concluídas.
+Exibir as tarefas em uma lista dinâmica e responsiva.
+Como Executar o Projeto:
 
-**Instalação:**
-Para configurar o projeto, execute o seguinte comando para instalar as dependências locais:
+Certifique-se de ter o Node.js instalado em seu sistema. Você pode fazer o download em: https://nodejs.org/.
 
-```
-npm install
-```
+Clone este repositório para o seu ambiente local ou faça o download dos arquivos.
 
-**Executando o Projeto:**
-Para iniciar o servidor e executar o projeto, use o seguinte comando:
+No terminal ou prompt de comando, navegue para o diretório do projeto.
 
-```
-npm start
-```
+Execute o comando npm install para instalar as dependências do projeto.
 
-O servidor será iniciado e estará disponível em `<a href="http://localhost:3000/">http://localhost:3000/</a>`.
+Por fim, execute o comando npm start para iniciar o servidor.
 
-**Experimente o Projeto:**
-Sinta-se à vontade para experimentar o projeto, gerenciar suas tarefas e explorar o código-fonte. Caso tenha alguma dúvida, sugestão ou problema, fique à vontade para entrar em contato. Aproveite o uso deste To-Do List para organizar suas atividades diárias de forma prática e eficiente!
+Acesse a aplicação no navegador através do endereço http://localhost:3333/.
+
+Agora você poderá usar a aplicação para criar sua lista de tarefas e gerenciar suas atividades diárias.
+
+Observações:
+
+Os arquivos TypeScript encontram-se na pasta "src", e os arquivos JavaScript transpilados ficam na pasta "dist".
+
+As pastas "views" e "public" devem estar dentro da pasta "dist" para que o servidor possa encontrar os arquivos estáticos e as views corretamente.
+
+Para implantar o aplicativo em um ambiente de produção, certifique-se de configurar corretamente o ambiente de hospedagem para executar o servidor Node.js e servir os arquivos estáticos corretamente.
+
+Sinta-se à vontade para modificar e estender o projeto de acordo com suas necessidades e preferências. Caso encontre algum problema ou tenha alguma sugestão de melhoria, fique à vontade para abrir uma issue ou um pull request.
