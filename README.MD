@@ -22,7 +22,7 @@ Para iniciar o servidor e executar o projeto, use o seguinte comando:
 npm start
 ```
 
-O servidor será iniciado e estará disponível em <a href="http://localhost:3000/http://localhost:3000/</a>.
+O servidor será iniciado e estará disponível em <a href="http://localhost:3000"> http://localhost:3000/</a>.
 
 **Experimente o Projeto:**
 Sinta-se à vontade para experimentar o projeto, gerenciar suas tarefas e explorar o código-fonte. Caso tenha alguma dúvida, sugestão ou problema, fique à vontade para entrar em contato. Aproveite o uso deste To-Do List para organizar suas atividades diárias de forma prática e eficiente!
