@@ -15,17 +15,19 @@ body {
     align-items: center;
     height: 100vh;
 }
-
 .container {
-    width: 400px;
-    height: 500px;
-    background-color: #fff;
-    border-radius: 8px;
-    display: flex;
-    flex-direction: column;
-    padding: 20px;
-    box-shadow: 0 0 25px -16px;
+  max-width: 400px;
+  width: 45rem;
+  height: 500px;
+  background-color: #fff;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
+
+
 
 h1 {
     text-align: center;
@@ -43,6 +45,7 @@ h1 {
 
 .form-add input[type="text"] {
     flex-grow: 1;
+    max-width: 100%;
     padding: 8px;
     border: 1px solid #ccc;
     border-radius: 4px;
