@@ -5,8 +5,8 @@ Este é um projeto de lista de tarefas (To-Do List) desenvolvido usando Node.js,
 **Pré-requisitos Globais:**
 Antes de executar o projeto, certifique-se de ter as seguintes dependências globais instaladas em seu sistema:
 
-- `<span>node</span>`: Para executar o código JavaScript/TypeScript.
-- `<span>typescript</span>` e `<span>ts-node</span>`: Para compilar e executar o código TypeScript.
+- <span>node</span>: Para executar o código JavaScript/TypeScript.
+- <span>typescript</span> e <span>ts-node</span>: Para compilar e executar o código TypeScript.
 
 **Instalação:**
 Para configurar o projeto, execute o seguinte comando para instalar as dependências locais:
